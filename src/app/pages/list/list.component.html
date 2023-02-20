@@ -1,0 +1,21 @@
+<input type="text" class="form-control mb-3" placeholder="Buscar heroe" (input)="filter($event)">
+<button class="btn btn-success"
+        [routerLink]="['/add']">
+    Añadir Heroe
+</button>
+
+<div class="row">
+    <div *ngFor="let heroe of heroes | slice: lowValue : highValue" class="col-xl-4 col-sm-6 col-xs-12">
+        <app-card [heroe]="heroe"></app-card>
+    </div>
+
+    <div *ngIf="!heroes.length" class="center-flex my-5">
+        <i *ngIf="isLoading$ | async " class="fa fa-spin fa-circle-o-notch" style="margin-right: 10px"></i>
+        <div *ngIf="isLoading$ | async">Cargando datos...</div>
+        <div *ngIf="!(isLoading$ | async)"class="text-muted">No hay heroes</div>
+    </div>
+</div>
+
+<mat-paginator #paginator [length]="heroes.length" [pageSize]="pageSize" [pageIndex]="pageIndex" [hidePageSize]="true"
+    (page)="getPaginatorData($event)" aria-label="Select page">
+</mat-paginator>

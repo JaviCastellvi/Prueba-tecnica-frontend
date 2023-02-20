@@ -1,0 +1,48 @@
+<div class="row">
+
+    <div class="col-md-6">
+        <img [src]="heroe | imagen">
+    </div>
+
+    <div class="col-md-6">
+        <h1>{{heroe.id ? 'Editar':'Añadir'}} Heroe <small>{{heroe.superhero}}</small></h1>
+        <div>
+            <label class="my-1">Super Heroe</label>
+            <input class="form-control mb-3" [(ngModel)]="heroe.superhero">
+        </div>
+
+
+        <div>
+            <label class="my-1">Editorial</label>
+            <input class="form-control mb-4" [(ngModel)]="heroe.publisher">
+        </div>
+
+        <div>
+            <label class="my-1">Imagen Url</label>
+            <input class="form-control mb-4" [(ngModel)]="heroe.alt_img">
+        </div>
+
+        <div class="row">
+            <div class="col-md mb-3">
+                <button class="btn"
+                        [ngClass]="{'btn-primary': heroe.id, 'btn-success' : !heroe.id }"
+                        (click)="save()"
+                        [disabled]="isLoading$ | async">
+                   <i *ngIf="isLoading$ | async" class="fa fa-spin fa-circle-o-notch" style="color: white; margin-right: 10px;"></i>
+                   <span *ngIf="heroe.id">{{ (isLoading$ | async) ? 'Editando':'Editar'}}</span>
+                   <span *ngIf="!heroe.id">{{ (isLoading$ | async) ? 'Añadiendo':'Añadir'}}</span>
+                </button>
+            </div>
+        
+            <div *ngIf="heroe.id" class="col-md d-flex mb-3 justify-content-md-end">
+                <button class="btn btn-danger"
+                        (click)="remove()"
+                        [disabled]="isLoading$ | async">
+                    <i *ngIf="isLoading$ | async" class="fa fa-spin fa-circle-o-notch" style="color: white; margin-right: 10px;"></i>
+                    <span>{{ (isLoading$ | async) ? 'Borrando':'Borrar'}}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

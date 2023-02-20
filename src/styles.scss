@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@mdi/font/css/materialdesignicons.css';
+
+$fa-font-path : '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 1rem !important }
+
+.center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-spin {
+
+  font-size: 1.875rem;
+  color: var(--color-imi);
+
+}

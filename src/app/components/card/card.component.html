@@ -1,0 +1,14 @@
+<div class="card my-3">
+    <img class="card-img-top" [src]="heroe | imagen" alt="Card image cap">
+    <div class="card-body">
+      <h2 class="card-title">{{ heroe.superhero }}</h2>
+      <p class="card-text">{{ heroe.publisher }}</p>
+      <button type="button"
+              title="editar"
+              class="btn btn-secondary"
+              [routerLink]="['/edit', heroe.id]">
+        Edición
+      </button>
+
+    </div>
+  </div>
