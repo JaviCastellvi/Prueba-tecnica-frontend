@@ -16,17 +16,27 @@ export class ListComponent implements OnInit {
   heroes: Heroe[] = [];
   heroes_copy: Heroe[] = [];
 
-  pageIndex:number = 0;
-  pageSize:number = 6;
-  lowValue:number = 0;
-  highValue:number = 6;  
+  pageIndex!:number;
+  pageSize!:number;
+  lowValue!:number;
+  highValue!:number;  
 
   constructor(
     private loaderService: LoaderService,
     private heroesService: HeroesService) { }
 
   ngOnInit(): void {
+    this.getHeroes();
+    
+  }
 
+  getHeroes(){
+
+    this.pageIndex = 0;
+    this.pageSize = 6;
+    this.lowValue = 0;
+    this.highValue = 6;  
+  
     this.heroesService.getHeroes().subscribe((heroes: Heroe[])=>{
       this.heroes = heroes;
       this.heroes_copy = this.heroes;

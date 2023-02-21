@@ -6,7 +6,7 @@
 
 <div class="row">
     <div *ngFor="let heroe of heroes | slice: lowValue : highValue" class="col-xl-4 col-sm-6 col-xs-12">
-        <app-card [heroe]="heroe"></app-card>
+        <app-card [heroe]="heroe" (refreshList)="getHeroes()"></app-card>
     </div>
 
     <div *ngIf="!heroes.length" class="center-flex my-5">

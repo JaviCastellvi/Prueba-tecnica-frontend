@@ -34,14 +34,7 @@
                 </button>
             </div>
         
-            <div *ngIf="heroe.id" class="col-md d-flex mb-3 justify-content-md-end">
-                <button class="btn btn-danger"
-                        (click)="remove()"
-                        [disabled]="isLoading$ | async">
-                    <i *ngIf="isLoading$ | async" class="fa fa-spin fa-circle-o-notch" style="color: white; margin-right: 10px;"></i>
-                    <span>{{ (isLoading$ | async) ? 'Borrando':'Borrar'}}</span>
-                </button>
-            </div>
+            
         </div>
     </div>
 </div>

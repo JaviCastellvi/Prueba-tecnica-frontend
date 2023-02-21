@@ -3,6 +3,7 @@
     <div class="card-body">
       <h2 class="card-title">{{ heroe.superhero }}</h2>
       <p class="card-text">{{ heroe.publisher }}</p>
+      
       <button type="button"
               title="editar"
               class="btn btn-secondary"
@@ -10,5 +11,13 @@
         Edición
       </button>
 
+    
+        <button class="btn btn-danger" style="margin-left: 10px;"
+                (click)="remove()"
+                [disabled]="isLoading$ | async">
+            <i *ngIf="isLoading$ | async" class="fa fa-spin fa-circle-o-notch" style="color: white; margin-right: 10px;"></i>
+            <span>{{ (isLoading$ | async) ? 'Borrando':'Borrar'}}</span>
+        </button>
+   
     </div>
   </div>

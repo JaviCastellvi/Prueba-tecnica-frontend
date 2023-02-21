@@ -19,3 +19,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 
   color: var(--color-imi);
 
 }
+
+.cdk-global-overlay-wrapper {
+  top: -7% !important;
+}
+
+.cdk-overlay-pane {
+  width: 500px !important;
+}
